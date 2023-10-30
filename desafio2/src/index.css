@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #1a1a1a !important;
+  /* background: #1a1a1a !important; */
   display: flex;
   place-items: center;
   min-width: 320px;

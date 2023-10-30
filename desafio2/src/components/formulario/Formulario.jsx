@@ -2,7 +2,7 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-export const Formulario = () => {
+export const Formulario = ({ setError }) => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -19,26 +19,32 @@ export const Formulario = () => {
     e.preventDefault();
 
     if (form.name.trim().length == 0) {
+      // console.log(setError);
       setError({
-        error: "Tu nombre no es válido",
+        error: "Debes escribir un nombre",
         color: "danger",
       });
-      alert("Debes ingresar tu nombre");
-    }
-
-    if (form.password != form.confirmPassword) {
-      alert("Las contraseñas deben ser iguales");
+    } else if (form.password != form.confirmPassword) {
+      setError({
+        error: "Las contraseñas deben ser iguales",
+        color: "danger",
+      });
+    } else if (form.email.trim().length == 0) {
+      setError({
+        error: "Debes ingresar tu mail",
+        color: "danger",
+      });
+    } else {
+      setError({
+        error: "Registro Exitoso!",
+        color: "primary",
+      });
     }
     // const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 
     // if (!validEmail.test(form.email)) {
     //   setError(false);
     //   setMensaje("Email incorrecto");
-
-    if (form.email.trim() == "") {
-      alert("Debes ingresar tu mail");
-    }
-
     return;
   };
 
@@ -55,7 +61,7 @@ export const Formulario = () => {
       <Form.Group className="mb-3">
         <Form.Control
           type="text"
-          name="mail"
+          name="email"
           placeholder="tuemail@email.com"
           onChange={obtenerDato}
         />
