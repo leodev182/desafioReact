@@ -1,31 +1,24 @@
 import { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export const Formulario = (setError) => {
-  const [name, setName] = useState("");
-  const [mail, setMail] = useState("");
-  const [password, setContra] = useState("");
-  const [confirmPassword, setConfirmaContra] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+  });
 
-  const onChangeName = () => {
-    setName(e.target.value);
-  };
-
-  const onChangeMail = () => {
-    setMail(e.target.value);
-  };
-
-  const onChangeContra = () => {
-    setContra(e.target.value);
-  };
-
-  const onChangeConfirmaContra = () => {
-    setConfirmaContra(e.target.value);
+  const obtenerDato = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (name.trim() == "") {
+    if (form.name.trim().length == 0) {
       setError({
         error: "Tu nombre no es válido",
         color: "danger",
@@ -33,11 +26,11 @@ export const Formulario = (setError) => {
       alert("Debes ingresar tu nombre");
     }
 
-    if (password != confirmPassword) {
+    if (form.password != form.confirmPassword) {
       alert("Las contraseñas deben ser iguales");
     }
 
-    if (mail.trim() == "") {
+    if (form.email.trim() == "") {
       alert("Debes ingresar tu mail");
     }
 
@@ -51,33 +44,42 @@ export const Formulario = (setError) => {
   };
 
   return (
-    <form>
-      <input
-        type="text"
-        name="name"
-        placeholder="Mariana García "
-        onChange={onChangeName}
-      />
-      <input
-        type="text"
-        name="mail"
-        placeholder="mariana@gmail.com"
-        onChange={onChangeMail}
-      />
-      <label>Contraseña:</label>
-      <input
-        type="password"
-        name="password"
-        placeholder="desafiolatam!*"
-        onChange={onChangeContra}
-      />
-      <input
-        type="password"
-        name="confirmPassword"
-        placeholder="desafiolatam!*"
-        onChange={onChangeConfirmaContra}
-      />
-      <button type="submit">Enviar</button>
-    </form>
+    <Form onSubmit={onSubmit}>
+      <Form.Group className="mb-3">
+        <Form.Control
+          type="text"
+          name="name"
+          placeholder="Mariana García "
+          onChange={obtenerDato}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Control
+          type="text"
+          name="mail"
+          placeholder="tuemail@email.com"
+          onChange={obtenerDato}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Control
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={obtenerDato}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Control
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirmar password"
+          onChange={obtenerDato}
+        />
+      </Form.Group>
+      <Button type="submit" variant="success" className="btn-boots">
+        Registrate
+      </Button>
+    </Form>
   );
 };
