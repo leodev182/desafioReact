@@ -1,18 +1,12 @@
-import { useState } from "react";
-import { Formulario } from "./Formulario";
-import Alert from "./Alert";
+import React from "react";
+import SocialButton from "./components/SocialButton";
+import Formulario from "./components/Formulario";
 
-export const Registro = () => {
-  const [error, setError] = useState({
-    error: "",
-    color: "danger",
-  });
-
-  console.log(error);
+const Registro = () => {
   return (
     <div>
+      <SocialButton />
       <Formulario />
-      <div></div>
     </div>
   );
 };
