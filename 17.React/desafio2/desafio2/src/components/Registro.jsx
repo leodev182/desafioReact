@@ -11,8 +11,7 @@ export const Registro = () => {
   console.log(error);
   return (
     <div>
-      <Formulario setError={setError} />
-      {error.error != "" && <Alert mensaje={error.error} color={error.color} />}
+      <Formulario />
       <div></div>
     </div>
   );

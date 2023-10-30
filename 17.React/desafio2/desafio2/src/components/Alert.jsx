@@ -1,7 +1,7 @@
-import { Alert as AlertBootstrap } from "react-bootstrap/Alert";
+/*import { Alert as AlertBootstrap } from "react-bootstrap/Alert";
 
 const Alert = ({ mensaje }) => {
-  return <AlertBootstrap variant="danger">{mensaje}</AlertBootstrap>;
+  return <AlertBootstrap variant="">{mensaje}</AlertBootstrap>;
 };
 
-export default Alert;
+export default Alert;*/

@@ -27,7 +27,8 @@ export const Formulario = (setError) => {
 
     if (name.trim() == "") {
       setError({
-        error: "Tuu nombre no es válido",
+        error: "Tu nombre no es válido",
+        color: "danger",
       });
       alert("Debes ingresar tu nombre");
     }
