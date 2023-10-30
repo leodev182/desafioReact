@@ -6,9 +6,31 @@
 }
 
 .card {
+  height: 45rem;
+  width: 30rem;
+  border-radius: 3% !important;
   padding: 2em;
+  background: rgba(255, 255, 255, 0.26) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .btn-boots {
   width: 100%;
+}
+
+.social {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.socialIcon {
+  height: 6em;
+  width: 6em;
+  border: 1px solid black;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,6 +1,15 @@
 body {
   margin: 0;
-  /* background: #1a1a1a !important; */
+  background-image: radial-gradient(
+    circle at 54.93% 50%,
+    #c35cf5 0,
+    #a350f4 16.67%,
+    #7b45f3 33.33%,
+    #3c3cf2 50%,
+    #0036f1 66.67%,
+    #0034ef 83.33%,
+    #0034ed 100%
+  ) !important;
   display: flex;
   place-items: center;
   min-width: 320px;

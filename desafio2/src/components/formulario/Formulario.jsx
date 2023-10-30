@@ -82,7 +82,7 @@ export const Formulario = ({ setError }) => {
           onChange={obtenerDato}
         />
       </Form.Group>
-      <Button type="submit" variant="success" className="btn-boots">
+      <Button type="submit" variant="primary" className="btn-boots">
         Registrate
       </Button>
     </Form>
