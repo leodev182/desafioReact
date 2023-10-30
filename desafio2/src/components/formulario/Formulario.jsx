@@ -2,7 +2,7 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-export const Formulario = (setError) => {
+export const Formulario = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -15,7 +15,7 @@ export const Formulario = (setError) => {
     });
   };
 
-  const onSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
 
     if (form.name.trim().length == 0) {
@@ -29,22 +29,21 @@ export const Formulario = (setError) => {
     if (form.password != form.confirmPassword) {
       alert("Las contraseñas deben ser iguales");
     }
+    // const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+
+    // if (!validEmail.test(form.email)) {
+    //   setError(false);
+    //   setMensaje("Email incorrecto");
 
     if (form.email.trim() == "") {
       alert("Debes ingresar tu mail");
     }
 
-    const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-
-    if (!validEmail.test(email)) {
-      setError(true);
-      setMensaje("Email incorrecto");
-      return;
-    }
+    return;
   };
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={submit}>
       <Form.Group className="mb-3">
         <Form.Control
           type="text"
